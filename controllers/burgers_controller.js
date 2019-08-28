@@ -18,13 +18,11 @@ router.get("/allBurgers",function(req,res){
 
 
 router.post("/burgers/create", function(req, res) {
-    burger.insertOne([
-      "burgerName"
-    ], [
-      req.body.burgerName 
-    ], function(result) {
+    burger.create( 
+      req.body.burgerName,
+     function(result) {
       // Send back the ID of the new quote
-      res.json({ id: result.insertId });
+    //   res.json({ id: result.insertId });
       console.log(result);
       res.redirect("/");
     });
@@ -35,9 +33,9 @@ router.post("/burgers/create", function(req, res) {
   
     console.log("condition", condition);
   
-    cat.update({
-      sleepy: req.body.sleepy
-    }, condition, function(result) {
+    burger.updateOne(
+    req.params.id
+    , function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();

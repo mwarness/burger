@@ -8,7 +8,7 @@
     <div>
         {{this.id}}.{{this.burgerName}}
         <div>
-            <form>
+            <form id= "devButtForm">
                 <input type="hidden" id="currentBurger" value={{this.id}}>
 
                 </input>
@@ -48,9 +48,10 @@
 
     <div class="form-group">
         <label for="burger">Burger Name:</label>
-        <input type="text" id="burgerChosen" name="name">
+        <input type="text" id="burgerChosen" name="burgerName" value = "">
+        <button type="submit">Add Burger</button>
     </div>
 
 
-    <button type="submit">Add Burger</button>
+    
 </form>
