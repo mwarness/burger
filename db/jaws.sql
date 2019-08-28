@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS a25abp313dkghkq5;
+CREATE DATABASE a25abp313dkghkq5;
+
+USE a25abp313dkghkq5;
+
+CREATE TABLE todos
+(
+	id int NOT NULL AUTO_INCREMENT,
+	description VARCHAR (255),
+	createdAt TIMESTAMP NOT NULL,
+	PRIMARY KEY (id)
+);
