@@ -1,17 +1,17 @@
-$(document).ready(function(){
-    console.log("i loaded man");
-    $("#devButtForm").on("submit", function(event){
+$(document).ready(function() {
+
+    $(".devour-form").on("submit", function(event) {
         event.preventDefault();
-        var burgerId = $(this).children("#currentBurger").val();
-        console.log(burgerId);
+
+        var burger_id = $(this).children(".burger_id").val();
+        console.log(burger_id);
         $.ajax({
             method: "PUT",
-            url: "/burgers/" + burgerId
-            
-        })
-        .then(function(data){
+            url: "/burgers/" + burger_id
+        }).then(function(data) {
+            // reload page to display devoured burger in proper column
             location.reload();
-        })
-    })
+        });
 
-})
+    });
+});
