@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
 
 router.get("/burgers", function (req, res) {
   // express callback response by calling burger.selectAllBurger
-  burger.selectAll(function (burgerDee) {
+  burger.all(function (burgerDee) {
     // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
     res.render("index", { burgerData: burgerDee });
   });
@@ -19,7 +19,7 @@ router.get("/burgers", function (req, res) {
 // post route -> back to index
 router.post("/burgers/create", function (req, res) {
   burger.create(
-    req.body.burgerName,
+    req.body.burgerNames,
     function (result) {
       // Send back the ID of the new quote
       //   res.json({ id: result.insertId });
